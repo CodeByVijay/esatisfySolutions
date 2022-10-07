@@ -74,7 +74,7 @@ if (isset($_REQUEST['save_job'])) {
     $salary = $_POST['salary'];
     $job_type = $_POST['job_type'];
     $job_desc = $_POST['job_desc'];
-    $create_at = date('Y-m-d');
+    $create_at = date('d-m-Y');
 
     $query = "INSERT INTO `jobs` (job_title, qualification, location, experience, salary,job_type, job_desc, create_at) VALUES('$job_title', '$qualification','$location','$experience','$salary',$job_type, '$job_desc','$create_at')";
     $result = mysqli_query($conn, $query);
@@ -82,10 +82,46 @@ if (isset($_REQUEST['save_job'])) {
     ?>
         <script>
             alert("Job Successfully Created.")
-            window.location.href = './admin/jobs.php';
+            window.location.href = './admin/jobs.php?page=jobs';
         </script>
-<?php
+    <?php
 
     }
+}
+
+if (isset($_REQUEST['update_job'])) {
+    $job_id = $_POST['job_id'];
+    $job_title = $_POST['job_title'];
+    $qualification = $_POST['qualification'];
+    $location = $_POST['location'];
+    $experience = $_POST['experience'];
+    $salary = $_POST['salary'];
+    $job_type = $_POST['job_type'];
+    $job_desc = $_POST['job_desc'];
+    
+    $query = "UPDATE `jobs` SET job_title = '$job_title', qualification='$qualification', location='$location', experience='$experience', salary='$salary',job_type=$job_type, job_desc='$job_desc' WHERE `id`=" . $job_id;
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+    ?>
+        <script>
+            alert("Job Successfully Updated.")
+            window.location.href = './admin/jobs.php?page=jobs';
+        </script>
+    <?php
+
+    }
+}
+
+if (isset($_GET['delete-job'])) {
+    $id = $_GET['delete-job'];
+    $job = "DELETE FROM `jobs` WHERE `id`=" . $id;
+    $result = mysqli_query($conn, $job);
+    ?>
+    <script>
+        alert("Job Delete Successfully.")
+        window.location.href = './admin/jobs.php?page=jobs';
+    </script>
+<?php
 }
 ?>

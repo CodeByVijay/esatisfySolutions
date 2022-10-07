@@ -61,6 +61,21 @@
 
           // Create new job ckeditor
           CKEDITOR.replace('job_desc');
+          // Create new job ckeditor End
+
+          // Profile Password
+
+          $('#pass').on('keyup', function() {
+            if ($(this).val() !== $('#con_pass').val()) {
+              $('#update_btn').attr('disabled',true);
+            } else {
+              $('#update_btn').attr('disabled',false);
+
+            }
+          })
+
+
+          // Profile Password End
         </script>
 
         </body>

@@ -10,7 +10,7 @@
 <!-- Breadcrumb-->
 <div class="breadcrumb-holder container-fluid">
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item"><a href="./dashboard.php">Home</a></li>
     <li class="breadcrumb-item active">Create New Job</li>
   </ul>
 </div>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="card-header d-flex align-items-center">
-            <h3 class="h4">All form elements</h3>
+            <h3 class="h4">Create New Job</h3>
           </div>
           <div class="card-body">
             <form method="POST" action="../main.php" class="form-horizontal">
@@ -120,16 +120,5 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include('adminfooter.php'); ?>

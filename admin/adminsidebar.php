@@ -32,6 +32,10 @@
       <li class="click <?php if ($_GET['page'] == 'feedback') {
                           echo "active";
                         } ?>"><a href="./feedback.php?page=feedback"> <i class="icon-mail"></i>Feedback </a></li>
+
+<li class="click <?php if ($_GET['page'] == 'profile') {
+                          echo "active";
+                        } ?>"><a href="./profile.php?page=profile"> <i class="fa fa-user"></i> Profile </a></li>
     </ul>
   </nav>
   <div class="content-inner">
