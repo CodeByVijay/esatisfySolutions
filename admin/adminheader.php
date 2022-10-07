@@ -38,6 +38,11 @@ if (!$_SESSION['login_user']) {
   <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+
+
+
 </head>
 
 <body>
@@ -57,7 +62,8 @@ if (!$_SESSION['login_user']) {
             <!-- Navbar Header-->
             <div class="navbar-header">
               <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                <div class="brand-text d-none d-lg-inline-block"><strong>Esatisfy Solutions Private Limited</strong></div>
+                <div class="brand-text d-none d-lg-inline-block"><strong>Test Dashboard</strong></div>
+                <!-- Esatisfy Solutions Private Limited -->
                 <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>E.S.pvt</strong></div>
               </a>
               <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>

@@ -33,6 +33,7 @@ if (isset($_POST['login'])) {
         $userData = mysqli_fetch_assoc($result);
         if (md5($password) === $userData['password']) {
             $_SESSION['login_user'] = $userData['username'];
+            $_SESSION['userName'] = $userData['name'];
             header("location: admin/dashboard.php");
         } else {
         ?>
@@ -48,7 +49,43 @@ if (isset($_POST['login'])) {
             alert("Unauthorize Access.")
             window.location.href = './login.php';
         </script>
+    <?php
+    }
+}
+
+if (isset($_REQUEST['feedback-delete'])) {
+    $id = $_GET['feedback-delete'];
+    $feedback = "DELETE FROM `contact_us` WHERE `id`=" . $id;
+    $result = mysqli_query($conn, $feedback);
+    ?>
+    <script>
+        alert("Feedback Delete Successfully.")
+        window.location.href = './admin/feedback.php?page=feedback';
+    </script>
+    <?php
+
+}
+
+if (isset($_REQUEST['save_job'])) {
+    $job_title = $_POST['job_title'];
+    $qualification = $_POST['qualification'];
+    $location = $_POST['location'];
+    $experience = $_POST['experience'];
+    $salary = $_POST['salary'];
+    $job_type = $_POST['job_type'];
+    $job_desc = $_POST['job_desc'];
+    $create_at = date('Y-m-d');
+
+    $query = "INSERT INTO `jobs` (job_title, qualification, location, experience, salary,job_type, job_desc, create_at) VALUES('$job_title', '$qualification','$location','$experience','$salary',$job_type, '$job_desc','$create_at')";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+    ?>
+        <script>
+            alert("Job Successfully Created.")
+            window.location.href = './admin/jobs.php';
+        </script>
 <?php
+
     }
 }
 ?>
